@@ -21,6 +21,8 @@ import os
 import pathlib
 from typing import List
 
+from dotenv import load_dotenv
+
 import pandas as pd
 import requests
 
@@ -139,6 +141,7 @@ def save_dataframe(df: pd.DataFrame, filename: str) -> None:
 
 
 def main() -> None:
+    load_dotenv()
     # Determine start date from environment or default to 7 days ago
     days_back = int(os.environ.get("DAYS_BACK", 7))
     start_date = datetime.date.today() - datetime.timedelta(days=days_back)

@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+
+# Data and output
+/data/
+/output/
+
+# Node modules (if any)
+node_modules/
+

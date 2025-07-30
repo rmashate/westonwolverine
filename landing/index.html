@@ -103,7 +103,7 @@
       <p>
         Every Monday morning we deliver a concise summary of crime stats, new development permits and council decisions that affect your neighbourhood.  No ads, no spam – just the facts you need to know.
       </p>
-      <form action="#" method="post">
+      <form id="signup-form">
         <input type="email" name="email" placeholder="Enter your email" required />
         <button type="submit">Join the wait‑list</button>
       </form>
@@ -115,5 +115,30 @@
   <footer>
     &copy; 2025 Weston Wolverine Brief.  Made in Toronto.
   </footer>
+  <script>
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+    const form = document.getElementById('signup-form');
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const email = form.email.value;
+      const resp = await fetch(`${SUPABASE_URL}/rest/v1/subscribers`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email })
+      });
+      if (resp.ok) {
+        form.reset();
+        alert('Thanks for signing up!');
+      } else {
+        alert('Sorry, something went wrong.');
+      }
+    });
+  </script>
 </body>
 </html>
