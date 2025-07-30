@@ -1,0 +1,29 @@
+## Weston Wolverine Brief – Week of {{ start_date }} to {{ end_date }}
+
+### Crime & Safety
+
+{% if total_crimes > 0 %}
+In the past week there were **{{ total_crimes }} major crime incidents** in Weston and nearby neighbourhoods.  Breakdown by category:
+
+{% for category, count in crime_counts.items() %}
+* **{{ count }} × {{ category }}**
+{% endfor %}
+
+{% else %}
+No major crime incidents were reported in Weston during this period.
+{% endif %}
+
+### Development & Permits
+
+We tracked **{{ permits_total }} active building permits** in the M9N postal area.  Top permit types:
+
+{% for item in top_permits %}
+* **{{ item.WORK }}** – {{ item.COUNT }} permits
+{% endfor %}
+
+### Council & Planning
+
+{{ council_note }}
+
+---
+This brief is automatically generated from open data and public reports.  If you have feedback or tips, please reply or get in touch.

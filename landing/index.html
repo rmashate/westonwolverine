@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weston Wolverine Brief</title>
+  <style>
+    :root {
+      --primary: #0c2d64; /* royal/light navy blue */
+      --secondary: #f5f7fa;
+      --accent: #e30613; /* subtle red accent reminiscent of newspaper */
+      --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background-color: var(--secondary);
+      color: #222;
+      line-height: 1.5;
+    }
+    header {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .callout {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .callout h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+    .callout p {
+      font-size: 1rem;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    input[type="email"] {
+      flex: 1 1 60%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button[type="submit"] {
+      flex: 1 1 35%;
+      padding: 12px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #08204a;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.875rem;
+      color: #555;
+    }
+    a {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weston Wolverine Brief</h1>
+    <p>Your two‑minute civic digest for Weston and Mount Dennis.</p>
+  </header>
+  <main>
+    <div class="callout">
+      <h2>Stay informed without the noise</h2>
+      <p>
+        Every Monday morning we deliver a concise summary of crime stats, new development permits and council decisions that affect your neighbourhood.  No ads, no spam – just the facts you need to know.
+      </p>
+      <form action="#" method="post">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Join the wait‑list</button>
+      </form>
+    </div>
+    <p>
+      By joining the wait‑list you’ll get early access to the first edition and a discounted subscription when we launch.  We respect your privacy and will never share your details.
+    </p>
+  </main>
+  <footer>
+    &copy; 2025 Weston Wolverine Brief.  Made in Toronto.
+  </footer>
+</body>
+</html>
