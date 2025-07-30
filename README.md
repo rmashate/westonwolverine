@@ -24,7 +24,13 @@ westonwolverine/
 ## Installation
 
 1. Clone or download this repository.
-2. Copy `.env.example` to `.env` and populate your Supabase, Stripe and Brevo keys.  The Python scripts will automatically load this file if present.
+2. Copy `.env.example` to `.env` and populate it with your real Supabase, Stripe
+   and Brevo credentials. **Keep this file private** – it is already listed in
+   `.gitignore` so it won’t be committed. Add the same values as encrypted
+   repository secrets (`SUPABASE_URL`, `SUPABASE_SERVICE_KEY`,
+   `SUPABASE_ANON_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_PRODUCT_ID`,
+   `STRIPE_PRICE_ID`, `BREVO_API_KEY`) if you plan to use the GitHub Actions
+   workflow.
 3. Install dependencies:
 
    ```sh
