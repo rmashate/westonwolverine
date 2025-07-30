@@ -12,6 +12,7 @@ import os
 import pathlib
 
 import pandas as pd
+from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 # Paths
@@ -59,6 +60,7 @@ def summarise_permits(permits: pd.DataFrame, top_n: int = 5) -> list:
 
 
 def main():
+    load_dotenv()
     crimes, permits = load_data()
 
     # Determine week boundaries from crime dates or default to last week
