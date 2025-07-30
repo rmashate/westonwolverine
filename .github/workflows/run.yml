@@ -1,0 +1,31 @@
+name: Generate weekly Weston Wolverine digest
+
+on:
+  # Run every Monday at 07:00 America/Toronto (11:00 UTC)
+  schedule:
+    - cron: '0 11 * * 1'
+  workflow_dispatch:
+    # Allow manual runs from GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DAYS_BACK: 7
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r weston_wolverine/requirements.txt
+      - name: Fetch data
+        run: python weston_wolverine/scraper.py
+      - name: Generate digest
+        run: python weston_wolverine/generate_digest.py
+      # Optional: add steps here to upload the digest to Supabase or send via Brevo.
