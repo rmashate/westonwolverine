@@ -52,11 +52,11 @@ def summarise_permits(permits: pd.DataFrame, top_n: int = 5) -> list:
     if permits.empty:
         return []
     top = permits.sort_values("COUNT", ascending=False).head(top_n)
-    # Convert to simple objects for Jinja2
-    return [
-        type("Obj", (object,), {"WORK": row["WORK"], "COUNT": int(row["COUNT"])})
-        for _, row in top.iterrows()
-    ]
+    # Convert to a list of dictionaries for Jinja2
+    records = top.to_dict(orient="records")
+    for r in records:
+        r["COUNT"] = int(r["COUNT"])
+    return records
 
 
 def main():
