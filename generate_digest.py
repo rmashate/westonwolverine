@@ -29,8 +29,12 @@ def load_data():
 
     if crimes_path.exists():
         crimes = pd.read_csv(crimes_path, parse_dates=["OCC_DATE"])
+        # Expose a plain date column for downstream summaries
+        crimes["DATE"] = crimes["OCC_DATE"].dt.date
     else:
-        crimes = pd.DataFrame(columns=["OCC_DATE", "OFFENCE", "MCI_CATEGORY", "NEIGHBOURHOOD_158", "DATE"])
+        crimes = pd.DataFrame(
+            columns=["OCC_DATE", "OFFENCE", "MCI_CATEGORY", "NEIGHBOURHOOD_158", "DATE"]
+        )
 
     if permits_path.exists():
         permits = pd.read_csv(permits_path)
